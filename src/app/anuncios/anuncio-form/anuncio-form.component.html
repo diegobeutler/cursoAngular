@@ -5,21 +5,21 @@
         formControlName="url"
         class="form-control"
         placeholder="Url Imagem"></textarea>
-      <app-vmessage *ngIf="anuncioForm.get('url')?.errors?.minlength" [text]="'Url deve conter no mínimo 6 caracteres'"></app-vmessage>
+      <app-vmessage *ngIf="anuncioForm.get('url')?.errors?.minlength || anuncioForm.get('mensagem')?.errors?.required" [text]="'Url deve conter no mínimo 6 caracteres'"></app-vmessage>
     </div>
     <div class="col-6">
        <textarea formControlName="titulo"
                  class="form-control"
                  placeholder="Título"></textarea>
-      <app-vmessage *ngIf="anuncioForm.get('titulo')?.errors?.minlength || anuncioForm.get('titulo')?.errors?.maxlength" [text]="'O título deve possuir entre 3 e 50 caracteres'"></app-vmessage>
+      <app-vmessage *ngIf="anuncioForm.get('titulo')?.errors?.minlength || anuncioForm.get('titulo')?.errors?.maxlength || anuncioForm.get('titulo')?.errors?.required" [text]="'O título deve possuir entre 3 e 50 caracteres'"></app-vmessage>
 
       <textarea formControlName="mensagem"
       class="form-control"
       placeholder="Mensagem"></textarea>
-      <app-vmessage *ngIf="anuncioForm.get('mensagem')?.errors?.minlength || anuncioForm.get('mensagem')?.errors?.maxlength" [text]="'A mensagem deve conter entre 300'"></app-vmessage>
+      <app-vmessage *ngIf="anuncioForm.get('mensagem')?.errors?.minlength || anuncioForm.get('mensagem')?.errors?.maxlength || anuncioForm.get('mensagem')?.errors?.required" [text]="'A mensagem deve conter entre 300'"></app-vmessage>
 
     </div>
-    <button [disabled]="anuncioForm.invalid || anuncioForm.get('url').value || anuncioForm.get('titulo').value || anuncioForm.get('url').value).value" type="submit" class="btn btn-primary btn-block">
+    <button [disabled]="anuncioForm.invalid" type="submit" class="btn btn-primary btn-block">
       Salvar
     </button>
     <a href="a/list" class="btn btn-secondary">Cancelar</a>

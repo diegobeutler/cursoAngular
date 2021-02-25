@@ -17,9 +17,9 @@ export class AnuncioFormComponent implements OnInit{
 
   ngOnInit(): void {
     this.anuncioForm = this.formBuilder.group({
-      url: ['', Validators.minLength(10)],
-      titulo: ['', [Validators.minLength(3), Validators.maxLength(50)]],
-      mensagem: ['', [Validators.minLength(3), Validators.maxLength(300)]]
+      url: ['', [Validators.minLength(10), Validators.required]],
+      titulo: ['', [Validators.minLength(3), Validators.maxLength(50), Validators.required]],
+      mensagem: ['', [Validators.minLength(3), Validators.maxLength(300), Validators.required]]
     });
   }
   salvarAnuncio(): void{
