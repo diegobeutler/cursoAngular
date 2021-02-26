@@ -14,7 +14,20 @@ export class AnuncioService {
   listar(): Observable<Anuncio[]> {
     return this.http.get<Anuncio[]>(environment.api + '/anuncios');
   }
+
   cadastrar(anuncio: Anuncio): Observable<void> {
+    if (anuncio.id) {
+      return this.http.put<void>(`${environment.api}/anuncios/${anuncio.id}`, anuncio);
+    }
     return this.http.post<void>(environment.api + '/anuncios', anuncio);
   }
+
+  findById(id: number): Observable<Anuncio> {
+    return this.http.get<Anuncio>(`${environment.api}/anuncios/${id}`);
+  }
+
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${environment.api}/anuncios/${id}`);
+  }
+
 }

@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 import {Anuncio} from './anuncio';
-import {AnuncioService} from './anuncio.service';
+
 
 @Component({
   selector: 'app-anuncio',
@@ -9,9 +9,9 @@ import {AnuncioService} from './anuncio.service';
   styleUrls: ['./anuncio.component.scss']
 })
 export class AnuncioComponent implements OnInit {
-
   @Input() anuncio: Anuncio;
-  constructor( private anuncioService: AnuncioService) { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

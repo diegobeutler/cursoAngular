@@ -5,7 +5,7 @@ import {AnuncioComponent} from './anuncio.component';
 import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
-  declarations: [AnuncioComponent],
+  declarations: [ AnuncioComponent ],
   imports: [
     CommonModule,
     HttpClientModule
